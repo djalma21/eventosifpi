@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CAOEI</title>
+</head>
+<body>
+<p>Bem vindo</p>
+
+<ul>
+{% for evento in eventos %}
+    <a href="{% url 'mostrar_evento' evento.id %}">{{evento.nome}}</a> <br>
+{% endfor%}
+</ul>
+
+
+<a href="{% url 'listar_inscritos' %}" class="btn btn-primary"> Lista de Inscritos</a><br>
+<a href="{% url 'cadastrar_evento' %}" class="btn btn-primary"> Cadastrar Evento</a><br>
+
+
+</body>
+</html>
