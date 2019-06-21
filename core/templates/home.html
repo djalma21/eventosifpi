@@ -12,12 +12,11 @@
 
 <ul>
 {% for evento in eventos %}
+    <img src="{{evento.foto.url}}" class="img-responsive" height="300" width="300"/> <br>
     <a href="{% url 'mostrar_evento' evento.id %}">{{evento.nome}}</a> <br>
 {% endfor%}
 </ul>
 
-
-<a href="{% url 'listar_inscritos' %}" class="btn btn-primary"> Lista de Inscritos</a><br>
 <a href="{% url 'cadastrar_evento' %}" class="btn btn-primary"> Cadastrar Evento</a><br>
 
 

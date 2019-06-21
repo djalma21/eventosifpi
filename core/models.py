@@ -17,7 +17,7 @@ class Evento(models.Model):
     local = models.CharField(max_length=100)
 
     def __str__(self):
-         return f' {self.foto} {self.nome} - {self.tipo} - {self.data_inicial} - {self.data_final} -{self.local} '
+         return f'  {self.nome} '
 
 class Inscricao(models.Model):
     nome = models.CharField(max_length=100)
@@ -29,7 +29,15 @@ class Inscricao(models.Model):
     def __str__(self):
         return f' {self.nome} - {self.sobrenome} - {self.cpf} - {self.email} -{self.evento} '
 
-# class Submissao(models.Model):
-#     nome = models.ForeignKey(Inscricao)
+class Submissao(models.Model):
+     nome = models.CharField(max_length=100)
+     cpf = models.CharField(max_length=11)
+     email = models.EmailField(max_length=100)
+     evento = models.ForeignKey(Evento, on_delete=models.CASCADE)
+     descricao = models.TextField(max_length=500)
+     trabalho = models.FileField(upload_to='submissao_trabalho', null=True, blank=True)
+
+     def __str__(self):
+         return self.nome
 
 

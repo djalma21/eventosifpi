@@ -5,13 +5,14 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>EVENTOS CADASTRADOS</title>
+    <title>Trabalhos</title>
 </head>
 <body>
-<h1> Lista em eventos </h1>
+<h1> Trabalhos Submetidos </h1>
 <ul>
-{% for inscrito in inscritos %}
-    <a href="{ url 'alterar_inscricao' inscrito.id}"> {{inscrito.nome}} -  <a href="{% url 'deletar_inscricao' inscrito.id %}"> Deletar </a></a> <br>
+{% for trabalho in trabalhos %}
+    <a href="{% url 'alterar_trabalho' trabalho.id %}">
+  {{trabalho.descricao}} - {{trabalho.nome}}  <a href="{% url 'deletar_trabalho' trabalho.id %}"> Deletar </a> <br>
 {% endfor %}
 </ul>
 </body>

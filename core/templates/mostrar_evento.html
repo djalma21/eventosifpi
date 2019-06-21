@@ -10,12 +10,17 @@
 <body>
 <ul>
 {% for evento in eventos %}
-<img src="{{evento.foto.url}}" class="img-responsive" height="300" width="300"/> <br>
-    <h1> O ifp {{evento.nome}}  {{evento.tipo}}  {{evento.data_inicial}} {{evento.data_final}} {{evento.local}} <br> </h1>
+<center><img src="{{evento.foto.url}}" class="img-responsive" height="300" width="300"/> <br>
+      <a href="{% url 'alterar_evento' evento.id %}">
+    <p>  {{evento.nome}}  {{evento.tipo}}  {{evento.data_inicial}} {{evento.data_final}} {{evento.local}} <br>
+        <a href="{% url 'deletar_evento' evento.id %}"> Deletar </a><br> </p></center>
 {% endfor%}
 </ul>
 
 
-<a href="{% url 'fazer_inscricao' %}" class="btn btn-primary"> Increva-se aqui</a>
+<a href="{% url 'fazer_inscricao' %}" class="btn btn-primary"> Increva-se aqui</a><br>
+<a href="{% url 'submeter' %}" class="btn btn-primary"> Submeter trabalho</a><br>
+<a href="{% url 'listar_inscritos' %}" class="btn btn-primary"> Lista de Inscritos</a><br>
+<a href="{% url 'trabalhos' %}" class="btn btn-primary"> Trabalhos Enviados</a><br>
 </body>
 </html>
