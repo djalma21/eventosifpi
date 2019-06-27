@@ -5,22 +5,31 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <title>Document</title>
 </head>
 <body>
+<h3>{{evento.nome}}</h3>
 <ul>
 {% for evento in eventos %}
-<center><img src="{{evento.foto.url}}" class="img-responsive" height="300" width="300"/> <br>
-      <a href="{% url 'alterar_evento' evento.id %}">
-    <p>  {{evento.nome}}  {{evento.tipo}}  {{evento.data_inicial}} {{evento.data_final}} {{evento.local}} <br>
-        <a href="{% url 'deletar_evento' evento.id %}"> Deletar </a><br> </p></center>
+
+    <center>
+
+        <h3>{{evento.nome}}</h3>
+
+    <a href="{% url 'alterar_evento' evento.id %}">    <p>  {{evento.nome}}  {{evento.tipo}}  {{evento.data_inicial}} {{evento.data_final}} {{evento.local}} <br>
+</a><br>
+        <a href="{% url 'deletar_evento' evento.id %}"> Deletar </a> </p></center><br><br>
 {% endfor%}
 </ul>
 
+<center>
+<a href="{% url 'fazer_inscricao' %}" class="btn btn-primary"> Increva-se aqui</a>
 
-<a href="{% url 'fazer_inscricao' %}" class="btn btn-primary"> Increva-se aqui</a><br>
-<a href="{% url 'submeter' %}" class="btn btn-primary"> Submeter trabalho</a><br>
-<a href="{% url 'listar_inscritos' %}" class="btn btn-primary"> Lista de Inscritos</a><br>
-<a href="{% url 'trabalhos' %}" class="btn btn-primary"> Trabalhos Enviados</a><br>
+<a href="{% url 'submeter' %}" class="btn btn-primary"> Submeter trabalho</a>
+
+<a href="{% url 'listar_inscritos' %}" class="btn btn-primary"> Lista de Inscritos</a>
+<a href="{% url 'trabalhos' %}" class="btn btn-primary"> Trabalhos Enviados</a>
+</center>
 </body>
 </html>

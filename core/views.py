@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Inscricao, Evento, Submissao
 from .forms import EventoForm, InscricaoForm, SubmissaoForm
-from django.contrib.auth.decorators import login_required
 
 def home(request):
     eventos = Evento.objects.all()
@@ -14,7 +13,7 @@ def listar_inscritos(request):
 def listar_trabalhos(request):
     trabalhos = Submissao.objects.all()
     return render(request,'lista_de_trabalhos.html',{'trabalhos': trabalhos})
-@login_required
+
 def cadastrar_evento(request):
     form = EventoForm(request.POST or None, request.FILES or None)
 
@@ -22,7 +21,6 @@ def cadastrar_evento(request):
         form.save()
         return redirect('home')
     return render(request, 'cadastrar_evento.html', {'form': form})
-@login_required
 def submeter_trabalho(request):
     form = SubmissaoForm(request.POST or None, request.FILES or None)
 
@@ -30,7 +28,7 @@ def submeter_trabalho(request):
         form.save()
         return redirect('home')
     return render(request, 'Submeter_trabalho.html', {'form': form})
-@login_required
+
 def fazer_inscricao(request):
     form = InscricaoForm(request.POST or None, request.FILES or None)
 
